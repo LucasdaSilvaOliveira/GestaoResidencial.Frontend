@@ -16,6 +16,7 @@ interface Props {
 
 export default function TotaisPorPessoa({ pessoas, transacoes }: Props) {
 
+  // Lógica para fazer o cálculo do total de receitas, despesas e o saldo (receita – despesa) de cada pessoa.
   const totais = pessoas.map(pessoa => {
     const receitas = transacoes
       .filter(t => t.pessoaId === pessoa.id && t.tipo === "Receita")

@@ -15,6 +15,8 @@ interface Props {
 }
 
 export default function TotaisPorCategoria({ categorias, transacoes }: Props) {
+
+  // Lógica para exibir o total de receitas, despesas e o saldo (receita – despesa) de cada categoria.
   const totais = categorias.map(cat => {
     const receitas = transacoes
       .filter(t => t.categoriaId === cat.id && t.tipo === "Receita")
@@ -61,9 +63,8 @@ export default function TotaisPorCategoria({ categorias, transacoes }: Props) {
                 R$ {t.despesas.toFixed(2)}
               </td>
               <td
-                className={`py-2 ${
-                  t.saldo >= 0 ? "text-green-400" : "text-red-400"
-                }`}
+                className={`py-2 ${t.saldo >= 0 ? "text-green-400" : "text-red-400"
+                  }`}
               >
                 R$ {t.saldo.toFixed(2)}
               </td>
@@ -81,9 +82,8 @@ export default function TotaisPorCategoria({ categorias, transacoes }: Props) {
               R$ {totalDespesas.toFixed(2)}
             </td>
             <td
-              className={`py-2 ${
-                saldoGeral >= 0 ? "text-green-400" : "text-red-400"
-              }`}
+              className={`py-2 ${saldoGeral >= 0 ? "text-green-400" : "text-red-400"
+                }`}
             >
               R$ {saldoGeral.toFixed(2)}
             </td>
