@@ -14,39 +14,6 @@ Este é um projeto frontend moderno desenvolvido com **React**, **TypeScript** e
 
 ---
 
-## 📁 Estrutura de Pastas
-
-src/
-│
-├─ api/
-│ ├─ axios.ts
-│ ├─ categoria.service.ts
-│ ├─ pessoa.service.ts
-│ └─ transacao.service.ts
-│
-├─ components/
-│ ├─ layout/
-│ └─ tables/
-│
-├─ models/
-│ ├─ CategoriaModel.ts
-│ ├─ PessoaModel.ts
-│ └─ TransacaoModel.ts
-│
-├─ pages/
-│ ├─ categorias/
-│ ├─ dashboard/
-│ ├─ pessoas/
-│ └─ transacoes/
-│
-├─ routes/
-│
-├─ App.css
-├─ App.tsx
-├─ index.css
-└─ main.tsx
-
-
 Essa organização mantém o projeto limpo e escalável, separando claramente **API**, **componentes**, **modelos de dados** e **páginas**.
 
 ---
