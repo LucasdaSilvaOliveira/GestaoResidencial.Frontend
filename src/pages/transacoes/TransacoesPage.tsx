@@ -10,12 +10,6 @@ interface Pessoa {
   idade: number;
 }
 
-interface Categoria {
-  id: number;
-  descricao: string;
-  finalidade: number; // 1=Despesa, 2=Receita, 3=Ambas
-}
-
 export default function TransacoesPage() {
   const [descricao, setDescricao] = useState("");
   const [valor, setValor] = useState("");
@@ -24,7 +18,7 @@ export default function TransacoesPage() {
   const [pessoaId, setPessoaId] = useState<number | "">("");
 
   const [pessoas, setPessoas] = useState<Pessoa[]>([]);
-  const [categorias, setCategorias] = useState<Categoria[]>([]);
+  const [categorias, setCategorias] = useState<any[]>([]);
 
   const navigate = useNavigate();
 
@@ -36,7 +30,7 @@ export default function TransacoesPage() {
         setPessoas(pessoasData);
 
         const categoriasData = await getCategorias();
-        
+
         setCategorias(categoriasData);
       } catch (error) {
         console.error("Erro ao buscar dados:", error);
@@ -63,11 +57,7 @@ export default function TransacoesPage() {
     }
 
     try {
-      // console.log(descricao)
-      // console.log(valor)
-      // console.log(tipo)
-      // console.log(categoriaId)
-      // console.log(pessoaId)
+
       await createTransacao({
         descricao,
         valor: Number(valor),
@@ -173,19 +163,30 @@ export default function TransacoesPage() {
         </div>
 
         {/* ALERTA MENOR DE IDADE */}
-        {/* {pessoaSelecionada && pessoaSelecionada.idade < 18 && tipo === 2 && (
+        {pessoaSelecionada && pessoaSelecionada.idade < 18 && tipo === 2 && (
           <p className="text-red-400 text-sm mb-4">
             Menores de idade não podem registrar receitas.
           </p>
-        )} */}
+        )}
 
-        <button
-          type="submit"
-          // disabled={pessoaSelecionada?.idade < 18 && tipo === 2}
-          className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 p-2 rounded font-semibold"
-        >
-          Cadastrar
-        </button>
+        {pessoaSelecionada !== undefined ? (
+          <button
+            type="submit"
+            disabled={pessoaSelecionada.idade < 18 && tipo === 2}
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 p-2 rounded font-semibold"
+          >
+            Cadastrar
+          </button>
+        ) : (
+          <button
+            type="submit"
+            className="w-full bg-blue-600 hover:bg-blue-700 disabled:bg-gray-600 p-2 rounded font-semibold"
+          >
+            Cadastrar
+          </button>
+        )}
+
+
       </form>
     </div>
   );
