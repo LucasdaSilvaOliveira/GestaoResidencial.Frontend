@@ -22,7 +22,7 @@ export default function TransacoesPage() {
 
   const navigate = useNavigate();
 
-  // 🔹 Carrega pessoas e categorias do backend
+  // Carrega pessoas e categorias do backend
   useEffect(() => {
     async function fetchData() {
       try {
@@ -39,7 +39,6 @@ export default function TransacoesPage() {
     fetchData();
   }, []);
 
-  // 🔹 Pessoa selecionada
   const pessoaSelecionada = pessoas.find(p => p.id === pessoaId);
 
   async function handleSubmit(e: React.FormEvent) {

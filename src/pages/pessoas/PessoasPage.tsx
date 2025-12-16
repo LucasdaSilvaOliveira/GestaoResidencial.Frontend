@@ -1,12 +1,6 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom"; // Para redirecionar
+import { useNavigate } from "react-router-dom";
 import { createPessoa } from "../../api/pessoa.service";
-
-interface Pessoa {
-  id: number;
-  nome: string;
-  idade: number;
-}
 
 export default function PessoasPage() {
   const [nome, setNome] = useState("");

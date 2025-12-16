@@ -93,7 +93,6 @@ export default function DashboardPage() {
                             await deleteTransacao(transacao.id);
                           }
 
-                          // Deletando a pessoa
                           await deletePessoa(p.id);
 
                           // Atualizando a lista de pessoas após exclusão

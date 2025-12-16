@@ -21,7 +21,7 @@ export default function CategoriasEditar() {
         const categoria = await getCategoriaById(Number(id));
 
         setDescricao(categoria.descricao);
-        setFinalidade(categoria.finalidade as Finalidade); // ✅ agora funciona
+        setFinalidade(categoria.finalidade as Finalidade);
       } catch (error) {
         console.error("Erro ao carregar categoria", error);
       } finally {
@@ -50,7 +50,7 @@ export default function CategoriasEditar() {
       await updateCategoria({
         id: Number(id),
         descricao,
-        finalidade: mapFinalidadeToNumber(finalidade), // ✅ conversão no submit
+        finalidade: mapFinalidadeToNumber(finalidade),
       });
 
       navigate("/");
